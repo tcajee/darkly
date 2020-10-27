@@ -1,4 +1,4 @@
-# 
+# Web scraping 
 
 ##  To discover the flag:
 
@@ -33,3 +33,11 @@ xargs: used to build and execute command lines from standard input effectively t
 grep: searches for PATTERNS in each FILE.
 
 cut: prints selected parts of lines from each FILE to standard output.
+```bash
+-d, --delimiter=DELIM
+       use DELIM instead of TAB for field delimiter
+
+-f, --fields=LIST
+       select only these fields;  also print any line that contains no delimiter character, unless the -s
+       option is specified
+```
