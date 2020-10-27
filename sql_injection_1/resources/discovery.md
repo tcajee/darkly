@@ -16,5 +16,5 @@
 ```bash
 5 UNION SELECT commentaire, countersign FROM users
 ```
-- Decrypting the result of the last step using an [MD5 decryption utility](https://hashtoolkit.com/decrypt-md5-hash) returns the value 'FortyTwo', which should be lowercased as instructed.
+- Decrypting the result of the last step using an [MD5 decryption utility](https://hashtoolkit.com/decrypt-md5-hash) returns the value `FortyTwo`, which should be lowercased as instructed.
 - Run the lowercased result through an [SHA256 calculator](https://xorbin.com/tools/sha256-hash-calculator) to get the flag.
