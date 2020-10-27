@@ -6,4 +6,4 @@
 - Open the browser's DevTools utility to inspect the page (the keyboard shortcut on most browsers is Ctrl+Shift+C).
 - Inspect the page to find a hidden input field element containing a plaintext email address.
 - Edit the element and remove the "hidden" type attribute.
- Select and submit the newly visible input field to get the flag.
+- Select and submit the newly visible input field to get the flag.
