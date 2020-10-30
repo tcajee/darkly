@@ -1,29 +1,21 @@
-## Unvalidated select
+##  Sensitive Data Exposure
 
 ### Vulnerability:
 
-This is an example of a failure to properly validate data passed to the backend of the application. Input validation is a programming technique that ensures only properly formatted data may enter a software system component.
+Sensitive Data Exposure or Information disclosure, is when an application fails to properly protect sensitive and confidential information from parties that are not supposed to have access to the subject matter in normal circumstances.
 
 ### Avoidance:
 
-This flaw can be mitigated by validating the user inputs both syntactically and semantically valid (in that order) before using it in any way (including displaying it back to the user).
-
-Syntax validity means that the data is in the form that is expected.
-
-Semantic validity includes only accepting input that is within an acceptable range for the given application functionality and context. For example, a start date must be before an end date when choosing date ranges.
+This vulnerability can be mitigated by adding additional protection, such as encryption at rest or in transit, and requiring special precautions when exchanged with the browser.
 
 ### Impact:
 
-Improper validation can lead to injection of malicious input such as code, scripting, commands, that can be interpreted/executed by different targets to exploit vulnerabilities, such as:
+These type of issues are not exploitable in most cases, but are considered as web application security issues because they allow malicious hackers to gather relevant information which can be used later in the attack lifecycle, in order to achieve more than they could if they didn’t get access to such information.
 
-- Browser: XSS, XFS, HTML-Splitting
-- Data repositories: SQL Injection, LDAP injection
-- Server side file processing: XML, XPATH
-- Application/Server/O.S: File uploads, Buffer Overflow
+Attackers may steal or modify such weakly protected data to conduct credit card fraud, identity theft, or other crimes.
 
 ### Resources:
-
-- https://owasp.org/www-pdf-archive/Encoded_Attacks_Threats_Countermeasures_9_30_08.pdf
-- https://stackoverflow.com/questions/18008017/are-drop-down-select-fields-vulnerable-to-any-sort-of-injection
-- https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs
-
+- https://www.netsparker.com/blog/web-security/information-disclosure-issues-attacks/
+- https://www.toptal.com/security/10-most-common-web-security-vulnerabilities
+- https://cwe.mitre.org/data/definitions/200.html
+- https://www.w3.org/Protocols/rfc2616/rfc2616-sec15.html
